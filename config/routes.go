@@ -25,7 +25,7 @@ func Router(
 	{
 		adminUserRoutes.GET("/", userController.GetAllUsers)
 		adminUserRoutes.GET("/:id", userController.GetUserByID)
-		adminUserRoutes.PUT("/:id/role", userController.UpdateUserRole)
+		adminUserRoutes.PUT("/:id", userController.UpdateUserRole)
 	}
 
 	eventRoutes := router.Group("/events")

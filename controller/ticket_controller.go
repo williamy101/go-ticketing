@@ -23,7 +23,6 @@ func (tc *TicketController) GetAllTicketsByUser(c *gin.Context) {
 		return
 	}
 
-	// Get pagination parameters
 	page, err := strconv.Atoi(c.DefaultQuery("page", "1"))
 	if err != nil || page <= 0 {
 		page = 1
