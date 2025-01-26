@@ -53,6 +53,10 @@ func (s *ticketService) PurchaseTicket(eventID, userID int) (*entity.Tickets, er
 		return nil, errors.New("event is sold out")
 	}
 
+	if event.Status == "Completed" {
+		return nil, errors.New("cannot purchase tickets for a completed event")
+	}
+
 	ticket, err := s.ticketRepo.FindAvailableTicket(eventID)
 	if err != nil || ticket == nil {
 		return nil, errors.New("no available tickets")

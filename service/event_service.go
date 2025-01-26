@@ -82,7 +82,6 @@ func (s *eventService) Create(event *entity.Events) error {
 }
 
 func (s *eventService) Update(event *entity.Events) error {
-	// Fetch the existing event
 	existingEvent, err := s.eventRepo.GetByID(event.EventID)
 	if err != nil {
 		return errors.New("event not found")
